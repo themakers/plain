@@ -1,16 +1,16 @@
 package main
 
 import (
-    "context"
-    "github.com/themakers/plain/internal/state/state_v1"
-    "time"
+	"context"
+	"time"
 
-    "github.com/themakers/plain/internal/recovery"
-    "github.com/themakers/plain/internal/state_manager"
-    "github.com/themakers/plain/internal/storage"
-    "github.com/themakers/plain/internal/ui_fyne"
-    "github.com/themakers/plain/lib/debouncer"
-    "github.com/themakers/plain/lib/worker"
+	"github.com/themakers/plain/internal/recovery"
+	"github.com/themakers/plain/internal/state/state_v1"
+	"github.com/themakers/plain/internal/state_manager"
+	"github.com/themakers/plain/internal/storage"
+	"github.com/themakers/plain/internal/ui_gioui"
+	"github.com/themakers/plain/lib/debouncer"
+	"github.com/themakers/plain/lib/worker"
 )
 
 // TODO: Signals
@@ -28,6 +28,7 @@ import (
 // TODO: Update notifications (label)
 // TODO: Make testable and write Tests?
 // TODO: Watch for state file changes?
+// TODO: Single instance mode + basic IPC comm
 
 func main() {
 	ctx, cancel := context.WithCancel(context.Background())
@@ -55,5 +56,5 @@ func main() {
 
 	defer wor.RunSync(saveState)
 
-	ui_fyne.Run(ctx, sm)
+	ui_gioui.Run(ctx, sm)
 }
