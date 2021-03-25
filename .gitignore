@@ -13,3 +13,14 @@
 
 # Dependency directories (remove the comment below to include it)
 # vendor/
+
+.idea
+*.iml
+
+/plain
+/plain.exe
+
+
+/.plain.yaml
+/.plain.yaml-bak
+/.plain.yaml-tmp
